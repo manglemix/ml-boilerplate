@@ -1,0 +1,10 @@
+[package]
+name = "ml-boilerplate"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { workspace = true }
+clap = { version = "4", features = ["derive"] }
+crossbeam = "0"
+burn = { version = "0", features = ["train", "wgpu"]}
