@@ -89,13 +89,13 @@ macro_rules! train {
         let model_trained = learner.fit(dataloader_train, dataloader_test);
     
         model_trained
-            .save_file(&models_path, &CompactRecorder::new())
+            .save_file(models_path.join("model.mpk"), &CompactRecorder::new())
             .expect("Trained model should be saved successfully");
 
         let mut renamed = models_path.join($model_name);
-        renamed.set_extension("mpk.gz");
+        renamed.set_extension("mpk");
 
-        std::fs::rename(models_path.join("model.mpk.gz"), renamed).expect("Model should be renamed successfully");
+        std::fs::rename(models_path.join("model.mpk"), renamed).expect("Model should be renamed successfully");
     }};
 }
 
